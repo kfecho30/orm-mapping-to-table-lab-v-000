@@ -32,5 +32,6 @@ class Student
       VALUES (?, ?);
     SQL
     DB[:conn].execute(sql, @name, @grade)
+    @id = DB[:conn].execute("SELECT last_inserted_rowid() FROM students")
   end
 end
